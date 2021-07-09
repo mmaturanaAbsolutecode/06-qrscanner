@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataLocalService } from 'src/app/services/data-local.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(
+    public dataLocalSrv: DataLocalService
+  ) {}
+
+  enviarCorreo(){
+    console.log('Enviando correo...');
+
+  }
 
 }
