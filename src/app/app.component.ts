@@ -9,7 +9,7 @@ import { AlertController } from '@ionic/angular';
 export class AppComponent {
   constructor(private alertCtrl: AlertController) {
     this.alertCtrl.create(
-      {
+      {//no se
         message: '¿¡DONDE TA MI HACHA CARGADA QL!?',
         buttons:[{
           text: 'NO SE',
