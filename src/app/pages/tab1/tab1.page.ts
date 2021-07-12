@@ -19,25 +19,25 @@ export class Tab1Page {
     private dataLocalSrv : DataLocalService
   ) { }
 
-  ionViewDidEnter() {
-    console.log('ionViewDidEnter');
-  }
+  // ionViewDidEnter() {
+  //   console.log('ionViewDidEnter');
+  // }
 
-  ionViewDidLeave() {
-    console.log('viewDidleave');
-  }
+  // ionViewDidLeave() {
+  //   console.log('viewDidleave');
+  // }
 
-  ionViewDidLoad() {
-    console.log(' ionViewDidLoad');
-  }
-  ionViewWillEnter() {
-    console.log('ionViewWillEnter');
-    this.scan();
-  }
+  // ionViewDidLoad() {
+  //   console.log(' ionViewDidLoad');
+  // }
+  // ionViewWillEnter() {
+  //   console.log('ionViewWillEnter');
+  //  // this.scan();
+  // }
 
-  ionWillLeave() {
-
-  }
+  // ionWillLeave() {
+    
+  // }sale de qui qlo
 
   scan() {
 

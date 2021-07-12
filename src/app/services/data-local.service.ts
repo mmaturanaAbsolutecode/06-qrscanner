@@ -6,33 +6,37 @@ import { Registro } from '../Models/registro.model';
   providedIn: 'root'
 })
 export class DataLocalService {
-  private registro: Storage | null = null;
+
+  private qrData: Storage | null = null;
 
 
-  guardados : Registro[]=[];
+  guardados: Registro[] = [];
 
   constructor(
     private storage: Storage
   ) {
     this.init();
-   }
-
-  async init() {
-    // If using, define drivers here: await this.storage.defineDriver(/*...*/);
-    const storage = await this.storage.create();
-    this.registro = storage;
-    console.log('storage creado');
   }
 
+  async init() {    
+      const storage = await this.storage.create();
+      this.qrData = storage;
+    }
 
-guardarRegistro(format:string, text:string){
 
-  const nuevoRegistro = new Registro(format, text);
+  guardarRegistro(format: string, text: string) {
 
-  this.guardados.unshift(nuevoRegistro);
-  console.log(this.guardados);
-  this.registro.set('registros',this.guardados);
-  
-}
+    const nuevoRegistro = new Registro(format, text);
+
+    this.guardados.unshift(nuevoRegistro);
+    console.log(this.guardados);
+    this.qrData.set('registros', this.guardados);
+
+  }
+
+  leerDataStorage(){
+    const datosStorage = this.storage.get('registros') ;
+    return datosStorage;
+  }
 
 }

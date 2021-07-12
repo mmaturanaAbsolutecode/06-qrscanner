@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private alertCtrl: AlertController) {
+    this.alertCtrl.create(
+      {
+        message: '¿¡DONDE TA MI HACHA CARGADA QL!?',
+        buttons:[{
+          text: 'NO SE',
+          role: 'cancel',
+          handler: _ => {}
+        }]
+      }
+    ).then(a => a.present());
+  }
 }
