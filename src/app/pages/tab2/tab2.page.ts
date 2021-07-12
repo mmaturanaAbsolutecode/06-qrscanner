@@ -13,8 +13,7 @@ export class Tab2Page {
 
   constructor(
     public dataLocalSrv: DataLocalService
-  ) {   
-  }
+  ) { }
 
   ionViewWillEnter() {
     console.log('ionViewWillEnter Historial');
@@ -24,6 +23,12 @@ export class Tab2Page {
   enviarCorreo(){
     console.log('Enviando correo...');
 
+  }
+
+
+  abrirRegistro(registro){
+    console.log('Registro',registro);
+    this.dataLocalSrv.abrirRegistro(registro);
   }
 
   async init (){
