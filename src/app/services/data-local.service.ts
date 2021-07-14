@@ -11,10 +11,9 @@ import { EmailComposer } from '@ionic-native/email-composer/ngx';
 })
 export class DataLocalService {
 
-  guardados: Registro[] = [];
+  guardados: Registro[];
 
   private qrData: Storage | null = null;
-
 
 
   constructor(
@@ -31,21 +30,31 @@ export class DataLocalService {
   async init() {
     const storage = await this.storage.create();
     this.qrData = storage;
-    //this.guardados = await this.storage.get('registros') || [];
+    this.guardados = await this.storage.get('registros') || [];
   }
 
 
   async guardarRegistro(format: string, text: string) {
     await this.leerDataStorage();
+
     const nuevoRegistro = new Registro(format, text);
-    await this.guardados.unshift(nuevoRegistro);
+
+    //  if(!this.guardados){
+    //   this.guardados = [nuevoRegistro];
+    //  }else{
+      this.guardados.unshift(nuevoRegistro); 
+    //  }
+      
+
     console.log(this.guardados);
+
     this.qrData.set('registros', this.guardados);
     this.abrirRegistro(nuevoRegistro);
   }
 
   async leerDataStorage() {
-    this.guardados = await this.storage.get('registros');
+    this.guardados = await this.storage.get('registros') || [];
+    //this.guardados = await this.storage.get('registros');
     return this.guardados;
 
   }
